@@ -1,85 +1,13 @@
 import React from 'react'
 import {name} from './user'
+import {obj,store} from './priority'
 const Status=({t,t1,theme})=> {
   const obj={
     0:"Backlog",
     1:"Todo",
     2: 'In Progress'
   }
-  const obj2 = {
-    Todo: (
-      <div className="icon-wrapper my-3 mr-1">
-        <svg
-          stroke="currentColor"
-          fill="none"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="icon"
-          height="1em"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ color: "gray" }}
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
-        </svg>
-      </div>
-    ),
-    "Backlog": (
-      <div className="icon-wrapper my-3 mr-1">
-        <div>
-          <svg
-            stroke="currentColor"
-            fill="none"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="icon"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ color: "gray" }}
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M7.5 4.21l0 .01"></path>
-            <path d="M4.21 7.5l0 .01"></path>
-            <path d="M3 12l0 .01"></path>
-            <path d="M4.21 16.5l0 .01"></path>
-            <path d="M7.5 19.79l0 .01"></path>
-            <path d="M12 21l0 .01"></path>
-            <path d="M16.5 19.79l0 .01"></path>
-            <path d="M19.79 16.5l0 .01"></path>
-            <path d="M21 12l0 .01"></path>
-            <path d="M19.79 7.5l0 .01"></path>
-            <path d="M16.5 4.21l0 .01"></path>
-            <path d="M12 3l0 .01"></path>
-          </svg>
-        </div>
-      </div>
-    ),
-    "In progress": (
-      <div className="icon-wrapper my-3 mr-1">
-        <div>
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 24 24"
-            className="icon"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ color: "rgb(245, 200, 66)" }}
-          >
-            <path d="M12 2h-1v9H2v1a10 10 0 0 0 17.07 7.07A10 10 0 0 0 12 2z"></path>
-          </svg>
-        </div>
-      </div>
-    ),
-  };
+  
   
   
   return (
@@ -89,7 +17,7 @@ const Status=({t,t1,theme})=> {
         <div id="l"
           className="left d- flex justify-between item-center gap-3 my-4 mt-1 mb-3 mx-4 font-semibold text-base color-[#373737]"
         style={{color:!theme?'black':'white'}}>
-          {obj2[t1]}
+          {store[t1]}
 
           <h2 className='my-2'>
             {t1}&nbsp;{t.length}&nbsp;{" "}
@@ -245,13 +173,7 @@ const B= ({ ticket,user ,theme}) => {
   a.map((e)=>{
     s+=e.charAt(0)
   })
-  const obj1 = {
-    4: "Urgent",
-    2: "Medium",
-    1: "Low",
-    0: "No Priority",
-    3: "High",
-  };
+
  
 
  const  user_icon_style={   
@@ -304,7 +226,7 @@ backgroundColor: !user1['available'] ?'gray':'rgb(236, 194, 56)',
             <div className="second my-2 font-semibold leading-4"style={{color:!theme?'black':'white'}}>{ticket.title}</div>
           </div>
           <div className='d- flex'>
-            {obj3[obj1[ticket.priority]]}
+            {obj3[obj[ticket.priority]]}
           <div className="third d- flex p-1 border-2 w-[10rem]">
             <span className="dot h-3 w-3 bg-[#bbb] my-[0.35rem] mx-1 border-2 rounded-[50%] "></span>
             <p className=" text-slate-400">{ticket.tag}</p>

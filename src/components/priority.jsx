@@ -63,12 +63,30 @@ const Priority = ({ t, t1,theme }) => {
     </>
   );
 };
-const A = ({ ticket,user ,theme}) => {
-  const user1 = user.find((user) => user.id === ticket.userId)
-  
-  const store = {
-    Todo: (
-      <div className="icon-wrapper my-3 mr-1">
+const store = {
+  Todo: (
+    <div className="icon-wrapper my-3 mr-1">
+      <svg
+        stroke="currentColor"
+        fill="none"
+        strokeWidth="2"
+        viewBox="0 0 24 24"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="icon"
+        height="1em"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ color: "gray" }}
+      >
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+      </svg>
+    </div>
+  ),
+  Backlog: (
+    <div className="icon-wrapper my-3 mr-1">
+      <div>
         <svg
           stroke="currentColor"
           fill="none"
@@ -83,63 +101,46 @@ const A = ({ ticket,user ,theme}) => {
           style={{ color: "gray" }}
         >
           <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-          <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"></path>
+          <path d="M7.5 4.21l0 .01"></path>
+          <path d="M4.21 7.5l0 .01"></path>
+          <path d="M3 12l0 .01"></path>
+          <path d="M4.21 16.5l0 .01"></path>
+          <path d="M7.5 19.79l0 .01"></path>
+          <path d="M12 21l0 .01"></path>
+          <path d="M16.5 19.79l0 .01"></path>
+          <path d="M19.79 16.5l0 .01"></path>
+          <path d="M21 12l0 .01"></path>
+          <path d="M19.79 7.5l0 .01"></path>
+          <path d="M16.5 4.21l0 .01"></path>
+          <path d="M12 3l0 .01"></path>
         </svg>
       </div>
-    ),
-    Backlog: (
-      <div className="icon-wrapper my-3 mr-1">
-        <div>
-          <svg
-            stroke="currentColor"
-            fill="none"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="icon"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ color: "gray" }}
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-            <path d="M7.5 4.21l0 .01"></path>
-            <path d="M4.21 7.5l0 .01"></path>
-            <path d="M3 12l0 .01"></path>
-            <path d="M4.21 16.5l0 .01"></path>
-            <path d="M7.5 19.79l0 .01"></path>
-            <path d="M12 21l0 .01"></path>
-            <path d="M16.5 19.79l0 .01"></path>
-            <path d="M19.79 16.5l0 .01"></path>
-            <path d="M21 12l0 .01"></path>
-            <path d="M19.79 7.5l0 .01"></path>
-            <path d="M16.5 4.21l0 .01"></path>
-            <path d="M12 3l0 .01"></path>
-          </svg>
-        </div>
+    </div>
+  ),
+  "In progress": (
+    <div className="icon-wrapper my-3 mr-1">
+      <div>
+        <svg
+          stroke="currentColor"
+          fill="currentColor"
+          strokeWidth="0"
+          viewBox="0 0 24 24"
+          className="icon"
+          height="1em"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ color: "rgb(245, 200, 66)" }}
+        >
+          <path d="M12 2h-1v9H2v1a10 10 0 0 0 17.07 7.07A10 10 0 0 0 12 2z"></path>
+        </svg>
       </div>
-    ),
-    "In progress": (
-      <div className="icon-wrapper my-3 mr-1">
-        <div>
-          <svg
-            stroke="currentColor"
-            fill="currentColor"
-            strokeWidth="0"
-            viewBox="0 0 24 24"
-            className="icon"
-            height="1em"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-            style={{ color: "rgb(245, 200, 66)" }}
-          >
-            <path d="M12 2h-1v9H2v1a10 10 0 0 0 17.07 7.07A10 10 0 0 0 12 2z"></path>
-          </svg>
-        </div>
-      </div>
-    ),
-  };
+    </div>
+  ),
+};
+const A = ({ ticket,user ,theme}) => {
+  const user1 = user.find((user) => user.id === ticket.userId)
+  
+  
  const  user_icon_style={   
   backgroundColor: "rgb(144, 12, 63)",
   display: "inline-flex",
@@ -205,5 +206,5 @@ backgroundColor: !user1['available'] ?'gray':'rgb(236, 194, 56)',
   );
 };
 export default Priority;
-export { A ,obj};
+export { A ,obj, store};
 
